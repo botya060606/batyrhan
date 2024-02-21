@@ -1,1 +1,155 @@
-asd
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Анимированный фон</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <style>
+        body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+    transition: 0.3s;
+}
+
+#select{
+    z-index: 2;
+    position: relative;
+}
+.container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.img{
+    width: 600px;
+    height: 800px;
+    background-color: #fff;
+    border-radius: 40px;
+    position: relative;
+    
+}
+img{
+    height: 100%;
+    width: 100%;
+    border-radius: 40px;
+    object-fit: contain;
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+img:first-child{
+    opacity: 1;
+}
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+select{
+    font-size: 40px;
+}
+option{
+    font-size: 20px;
+}
+    </style>
+    <div id="stars">
+        
+    </div>
+    <div class="container">
+        <div class="img">
+            <img src="https://avatars.mds.yandex.net/i?id=bc453d3a3db9365e9f35d563342e0e27ba9d7beb-10124799-images-thumbs&n=13" alt="" id = '360'>
+            <img src="https://ru-fun.ru/uploads/images/073b4d389f8fb408053e396e4fc5a847.jpg" alt="" id = '480'>
+            <img src="https://gas-kvas.com/uploads/posts/2023-01/1673575861_gas-kvas-com-p-detskii-risunok-serdtse-53.jpg" alt="" id = '720'>
+            <img src="https://fastmi.com/wp-admin/network/edit.jpg" alt="" id = '1080'>
+        </div>
+        <select id = "select">
+            <option value="360">360p</option>
+            <option value="480">480p</option>
+            <option value="720">720p</option>
+            <option value="1080">1080p</option>
+        </select>
+    </div>
+    <script>
+        function createStar() {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.width = Math.random() * 6 + 'px';
+    star.style.height = star.style.width;
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    document.getElementById('stars').appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+    }, 2000);
+}
+
+setInterval(createStar, 10);
+
+document.getElementById('select').addEventListener('change', function() {
+    var selectedValue = this.value;
+
+    if(selectedValue == '360'){
+        document.querySelectorAll('img').forEach(function(img) {
+            img.style.opacity = 0;
+        });
+        document.getElementById('360').style.opacity = 1;
+    }
+
+    if(selectedValue == '480'){
+        document.querySelectorAll('img').forEach(function(img) {
+            img.style.opacity = 0;
+        });
+        document.getElementById('480').style.opacity = 1;
+    }
+
+    if(selectedValue == '720'){
+        document.querySelectorAll('img').forEach(function(img) {
+            img.style.opacity = 0;
+        });
+        document.getElementById('720').style.opacity = 1;
+    }
+
+    if(selectedValue == '1080'){
+        document.querySelectorAll('img').forEach(function(img) {
+            img.style.opacity = 0;
+        });
+        document.getElementById('1080').style.opacity = 1;
+    }
+});
+
+
+    </script>
+</body>
+</html>
