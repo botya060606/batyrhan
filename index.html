@@ -142,6 +142,8 @@ document.getElementById('select').addEventListener('change', function() {
             img.style.opacity = 0;
         });
         document.getElementById('360').style.opacity = 1;
+        var styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(".star:before { color: #fff !important; }", styleSheet.cssRules.length);
     }
 
     if(selectedValue == '480'){
@@ -149,6 +151,8 @@ document.getElementById('select').addEventListener('change', function() {
             img.style.opacity = 0;
         });
         document.getElementById('480').style.opacity = 1;
+        var styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(".star:before { color: #fff !important; }", styleSheet.cssRules.length);
     }
 
     if(selectedValue == '720'){
@@ -156,6 +160,8 @@ document.getElementById('select').addEventListener('change', function() {
             img.style.opacity = 0;
         });
         document.getElementById('720').style.opacity = 1;
+        var styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(".star:before { color: #fff !important; }", styleSheet.cssRules.length);
     }
 
     if(selectedValue == '1080'){
