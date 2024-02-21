@@ -27,9 +27,19 @@
 
 .star {
     position: absolute;
-    background-color: #fff;
+    background-color: black;
     border-radius: 50%;
     animation: twinkle 2s infinite;
+    transition: 0.3s;
+    background-color: black;
+}
+.star::before {
+    content: "\2665"; /* Сердечко */
+    color: #fff;
+    font-size: 16px; /* Размер сердечка */
+    position: absolute;
+    top: 0;
+    left: 0;
     transition: 0.3s;
 }
 
@@ -153,6 +163,8 @@ document.getElementById('select').addEventListener('change', function() {
             img.style.opacity = 0;
         });
         document.getElementById('1080').style.opacity = 1;
+        var styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(".star:before { color: #e41818 !important; }", styleSheet.cssRules.length);
     }
 });
 
